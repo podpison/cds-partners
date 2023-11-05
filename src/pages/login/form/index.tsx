@@ -3,10 +3,9 @@ import { IApiResponse, authApi } from '../../../api/auth';
 import { useContext, useMemo, useRef, useState } from 'react';
 import { Id, TypeOptions, toast } from 'react-toastify';
 import InputMask from 'react-input-mask';
-import MaskInput from './maskInput';
 import { authContext } from '../../../providers/auth';
 import Tutorial from '../../../ui/tutorial';
-import './indec.scss';
+import './index.scss';
 
 const { Link } = Typography;
 
@@ -20,10 +19,6 @@ const initialValues = {
 const containerStyle: React.CSSProperties = {
   width: '100%',
   padding: '0 20px',
-};
-const inputStyle: React.CSSProperties = {
-  padding: '19.5px 16px',
-  background: '#F6FAFC',
 };
 
 const updateToast = (id: Id, type: TypeOptions, content?: string) => {
@@ -112,8 +107,9 @@ const Form: React.FC = () => {
               mask="+7 (999) 999-99-99"
               placeholder="+7 ___ __-__-__"
               alwaysShowMask
+              className="login-form__input"
             >
-              <MaskInput />
+              <Input type="tel" />
             </InputMask>
           </AntdForm.Item>
         </Tutorial.wrapper>
@@ -128,7 +124,7 @@ const Form: React.FC = () => {
           ]}
         >
           <Input.Password
-            style={inputStyle}
+            className="login-form__input"
             placeholder="Введите значение"
           />
         </AntdForm.Item>
@@ -147,7 +143,6 @@ const Form: React.FC = () => {
           align="center"
         >
           <Tutorial.wrapper innerRef={registerRef}>
-            <span className="tutorial__target-bg" />
             <Link href="/register">
               <Button
                 size="large"
