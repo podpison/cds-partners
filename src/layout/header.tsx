@@ -29,6 +29,7 @@ const Header: React.FC = () => {
   const { products } = useContext(cartContext);
 
   const logOut = () => {
+    localStorage.removeItem('auth');
     setAuth(false);
   };
 
