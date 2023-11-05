@@ -16,7 +16,6 @@ type LoginParams = {
 export const authApi = {
   login: async (values: LoginParams): Promise<IApiResponse> => {
     return new Promise((res, rej) => {
-      console.log(values)
       setTimeout(() => {
         //setTimeout для иммитации задержки
         if (
@@ -29,6 +28,7 @@ export const authApi = {
           });
         }
 
+        localStorage.setItem('auth', 'true');
         res({
           type: 'success',
         });

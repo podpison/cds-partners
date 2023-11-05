@@ -17,7 +17,11 @@ export const authContext = createContext<ContextType>({
 
 const AuthProvider: React.FC<Props> = ({ children }) => {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState(false);
+  const lsAuth: boolean = JSON.parse(localStorage.getItem('auth') || 'false');
+
+  const [auth, setAuth] = useState(
+    typeof lsAuth === 'boolean' ? lsAuth : false
+  );
 
   useEffect(() => {
     navigate(auth ? '/' : '/login');
