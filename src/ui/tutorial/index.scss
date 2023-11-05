@@ -21,7 +21,6 @@
 }
 
 .tutorial {
-  // position: relative;
   z-index: 4;
 
   &__bg {
@@ -81,6 +80,10 @@
     width: 320px;
     left: 50%;
     transform: translateX(-50%);
+    
+    @media screen and (max-width: 375px) {
+      width: 300px;
+    }
   }
   &__text {
     display: block;
@@ -129,7 +132,7 @@
     opacity: 0.7;
     position: absolute;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-45%, -50%);
     width: 50%;
   }
   &__bg {
